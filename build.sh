@@ -26,12 +26,12 @@ set -e
 # build gcc
 cd ~/src
 
-# The $PREFIX/bin dir _must_ be in the PATH.
-which -- $TARGET-as || echo $TARGET-as is not in the PATH
-
 export PREFIX="/usr/local/cross"
 export TARGET=x86_64-pc-linux-gnu
 export PATH="$PREFIX/bin:$PATH"
+
+# The $PREFIX/bin dir _must_ be in the PATH.
+which -- $TARGET-as || echo $TARGET-as is not in the PATH
 
 svn checkout svn://gcc.gnu.org/svn/gcc/branches/gccgo gccgo
 cd gccgo
