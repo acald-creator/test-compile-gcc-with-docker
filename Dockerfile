@@ -1,6 +1,6 @@
-# FROM gcc:9.1.0 as compiler
+FROM gcc:9.1.0 as compiler
 
-FROM pyrrhus/gcc-9.1.0
+# FROM pyrrhus/gcc-9.1.0
 
 COPY build.sh /tmp
 
