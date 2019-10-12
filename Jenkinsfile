@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'gcc version'
+                sh 'gcc --v'
             }
         }
     }
