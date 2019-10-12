@@ -4,8 +4,7 @@ set -e
 # Based on https://wiki.osdev.org/GCC_Cross-Compiler
 
 # install prerequisites
-apt-get update
-apt-get install -y curl nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo subversion git libffi-dev libgdbm-dev libgmp-dev libjemalloc-dev libncurses5-dev libncursesw5-dev libreadline6-dev libssl-dev libyaml-dev openssl valgrind zlib1g-dev ccache ruby ruby-dev
+
 
 # download and extract sources
 mkdir ~/src && cd ~/src
@@ -39,7 +38,7 @@ cd build-gcc
 ../gcc-9.1.0/configure --target=$TARGET \
  --prefix="$PREFIX" \
  --disable-nls \
- --enable-languages=c,c++,fortran,d \
+ --enable-languages=c,c++,fortran \
  --disable-multilib \
  --enable-valgrind-annotations \
  --enable-threads=posix \
@@ -80,4 +79,4 @@ make install-target-libgcc
 rm -r ~/src
 
 # Test the new installation
-$TARGET-gcc --version
+$TARGET --version
